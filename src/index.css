@@ -1,1 +1,11 @@
 /** This is the global CSS file update this and everything will be updated */
+
+.content {
+    background-color: #999999 /* #FFF */; /* color of content background */
+    padding: 20px;
+}
+
+.site-footer {
+    padding: 0;
+    margin: 0;
+}
