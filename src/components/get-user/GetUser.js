@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import firebase from "../../firebase.js";
 import './GetUser.css';
-import {NavLink, Redirect} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 class GetUser extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    console.log(this.props);
     this.state = {
-
+      new: this.props.match.params.key === "n",
       fullName: "",
       password: "",
       email: ""
@@ -33,7 +34,6 @@ class GetUser extends Component {
         console.log(error);
       });
     }
-    // this.props.history.push('/game-options');
   }
 
   handleChange(e) {
@@ -51,7 +51,7 @@ class GetUser extends Component {
 
           <div>
             <h1 id="header">
-            {this.props.new ? "Create" : "Log Into"}
+            {this.state.new ? "Create" : "Log Into"}
             <span id="headerSec"> Account</span></h1>
           </div>
 
@@ -62,7 +62,7 @@ class GetUser extends Component {
             <form onSubmit={this.handleSubmit}>
               <div id="inputBoxes">
 
-                {this.props.new ?
+                {this.state.new ?
                   <input
                     id="fullName"
                     type="text"
@@ -93,7 +93,7 @@ class GetUser extends Component {
 
               <div className="btnContainer">
                 <NavLink to="/game-options"><button id="createBtn" type="submit">Login</button></NavLink>
-                <NavLink to="/"><button id="cancelBtn" type="button">Cancel</button></NavLink>
+                <button id="cancelBtn" type="button" onClick={this.props.history.goBack}>Cancel</button>
               </div>
 
             </form>

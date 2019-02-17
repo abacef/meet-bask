@@ -14,7 +14,7 @@ export default class Routes extends Component {
     return (
       <div>
         <Route exact path="/" component={LoginOptions}/>
-        <Route path="/login-signup:key" component={Child}/>
+        <Route path="/login-signup:key" component={GetUser}/>
         <Route path="/game-options" component={GameOptions}/>
         <Route path="/game-list" component={JoinGroup}/>
         <Route path="/create-game" component={CreateGame}/>
@@ -24,7 +24,3 @@ export default class Routes extends Component {
   }
 
 }
-
-const Child = ({ match }) => (
-  <GetUser new={match.params.key === "n"}/>
-);
