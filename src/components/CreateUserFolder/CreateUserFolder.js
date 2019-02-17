@@ -13,6 +13,11 @@ class CreateUserFolder extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.goBack = this.goBack.bind(this);
+  }
+
+  goBack() {
+    this.props.history.goBack();
   }
 
   handleSubmit(e) {
@@ -29,6 +34,7 @@ class CreateUserFolder extends Component {
       password: "",
       email: "",
     });
+    this.props.history.push('/game-options');
   }
 
   handleChange(e) {
@@ -82,8 +88,8 @@ class CreateUserFolder extends Component {
               </div>
 
               <div className="btnContainer">
-                <button id="createBtn" type="button">Create</button>
-                <button id="cancelBtn" type="button">Cancel</button>
+                <button id="createBtn" type="submit">Create</button>
+                <button id="cancelBtn" type="button" onClick={this.goBack}>Cancel</button>
               </div>
 
             </form>

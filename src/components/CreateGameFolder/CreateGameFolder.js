@@ -13,6 +13,11 @@ class CreateGameFolder extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.goBack = this.goBack.bind(this);
+  }
+
+  goBack() {
+    this.props.history.goBack();
   }
 
   handleSubmit(e) {
@@ -31,6 +36,7 @@ class CreateGameFolder extends Component {
       time: "",
       location: ""
     });
+    this.props.history.push('/');
   }
 
   handleChange(e) {
@@ -38,7 +44,6 @@ class CreateGameFolder extends Component {
       [e.target.name]: e.target.value
     });
   }
-
 
   render() {
     return (
@@ -93,8 +98,8 @@ class CreateGameFolder extends Component {
             </div>
               
               <div className="btnContainer">
-                <button id="createBtn" type="button">Create</button>
-                <button id="cancelBtn" type="button">Cancel</button>
+                <button id="createBtn" type="submit">Create</button>
+                <button id="cancelBtn" type="button" onClick={this.goBack}>Cancel</button>
               </div>
               
             </form>
