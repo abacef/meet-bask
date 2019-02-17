@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import firebase from "../../firebase.js";
-import './CreateUserFolder.css';
+import './GetUser.css';
 import {NavLink} from "react-router-dom";
 
-class CreateUserFolder extends Component {
+class GetUser extends Component {
   constructor() {
     super();
     this.state = {
@@ -103,4 +103,4 @@ class CreateUserFolder extends Component {
     );
   }
 }
-export default CreateUserFolder;
+export default GetUser;

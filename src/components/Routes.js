@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import {Route} from "react-router-dom";
 
-import LoginOptions from "./loginOptions/loginOptions"
+import LoginOptions from "./login-options/loginOptions"
 import GameListPlaceholder from "./GameListPlaceholder";
-import CreateGameFolder from "./CreateGameFolder/CreateGameFolder";
-import CreateUserFolder from "./CreateUserFolder/CreateUserFolder";
-import GameOptions from "./gameOptions/gameOptions";
+import CreateGame from "./create-game/CreateGame";
+import GetUser from "./get-user/GetUser";
+import GameOptions from "./game-options/GameOptions";
 import GameInfoPlaceholder from "./GameInfoPlaceholder";
 
 export default class Routes extends Component {
@@ -17,7 +17,7 @@ export default class Routes extends Component {
         <Route path="/login-signup:key" component={Child}/>
         <Route path="/game-options" component={GameOptions}/>
         <Route path="/game-list" component={GameListPlaceholder}/>
-        <Route path="/create-game" component={CreateGameFolder}/>
+        <Route path="/create-game" component={CreateGame}/>
         <Route path="/game-info" component={GameInfoPlaceholder}/>
       </div>
     )
@@ -26,5 +26,5 @@ export default class Routes extends Component {
 }
 
 const Child = ({ match }) => (
-  <CreateUserFolder new={match.params.key === "n"}/>
+  <GetUser new={match.params.key === "n"}/>
 );

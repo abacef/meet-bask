@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './gameOptions.css';
+import './GameOptions.css';
 import {NavLink} from "react-router-dom";
 import firebase from "../../firebase";
 

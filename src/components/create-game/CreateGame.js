@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import firebase from "../../firebase.js";
-import './CreateGameFolder.css';
+import './CreateGame.css';
 
-class CreateGameFolder extends Component {
+class CreateGame extends Component {
   constructor() {
     super();
     this.state = {
@@ -109,4 +109,4 @@ class CreateGameFolder extends Component {
     );
   }
 }
-export default CreateGameFolder;
+export default CreateGame;

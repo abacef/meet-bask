@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './loginOptions.css';
+import './LoginOptions.css';
 import {NavLink} from "react-router-dom";
 
 class LoginOptions extends Component {
