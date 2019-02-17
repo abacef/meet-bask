@@ -3,6 +3,7 @@ import CreateGameFolder from "./components/CreateGameFolder/CreateGameFolder";
 import GameOptions from "./components/gameOptions/gameOptions";
 import LoginOptions from "./components/loginOptions/loginOptions";
 import firebase from "./firebase.js";
+import CreateUserFolder from "./components/CreateUserFolder/CreateUserFolder";
 // import "./App.css";
 
 class App extends Component {
@@ -55,7 +56,7 @@ class App extends Component {
   // }
   render() {
     return (
-      <LoginOptions />
+      <CreateUserFolder />
       
     );
   }
