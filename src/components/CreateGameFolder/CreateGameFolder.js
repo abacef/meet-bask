@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import firebase from "../../firebase.js";
-import './CreateGameFolder.css';
+import "./CreateGameFolder.css";
 
 class CreateGameFolder extends Component {
   constructor() {
     super();
     this.state = {
-      sport: "Basketball",
+      sport: "-------",
       players: "",
       time: "",
       location: ""
@@ -19,6 +19,7 @@ class CreateGameFolder extends Component {
     e.preventDefault();
     const itemsRef = firebase.database().ref("items");
     const item = {
+      id: Math.floor(Math.random() * 10000000) + 1,
       sport: this.state.sport,
       players: this.state.players,
       time: this.state.time,
@@ -39,64 +40,61 @@ class CreateGameFolder extends Component {
     });
   }
 
-
   render() {
     return (
-
       <div className="bgColor">
         <header>
-        
           <div>
-            <h1 id="header">Create <span id="headerSec">Game</span></h1>
+            <h1 id="header">
+              Create <span id="headerSec">Game</span>
+            </h1>
           </div>
-
         </header>
 
         <div>
           <section className="add-item">
             <form onSubmit={this.handleSubmit}>
-            <div id="inputBoxes">
-            <select
-                id="sport"
-                name="sport"
-                onChange={this.handleChange}
-                value={this.state.value}
-              >
-                <option value="">Choose Game Type</option>
-                <option value="Soccer">Soccer</option>
-                <option value="Basketball">Basketball</option>
-                <option value="Lacrosse">Lacrosse</option>
-              </select>
-              <input
-                id="players"
-                type="text"
-                name="players"
-                placeholder="Number Of Players?"
-                onChange={this.handleChange}
-                value={this.state.players}
-              />
-              <input
-                id="time"
-                type="time"
-                name="time"
-                onChange={this.handleChange}
-                value={this.state.time}
-              />
-              <input
-                id="location"
-                type="text"
-                name="location"
-                placeholder="Where will the game be?"
-                onChange={this.handleChange}
-                value={this.state.location}
-              />
-            </div>
-              
-              <div className="btnContainer">
-                <button id="createBtn" type="button">Create</button>
-                <button id="cancelBtn" type="button">Cancel</button>
+              <div id="inputBoxes">
+                <select
+                  id="sport"
+                  name="sport"
+                  onChange={this.handleChange}
+                  value={this.state.value}
+                >
+                  <option value="">Choose Game Type</option>
+                  <option value="Soccer">Soccer</option>
+                  <option value="Basketball">Basketball</option>
+                  <option value="Lacrosse">Lacrosse</option>
+                </select>
+                <input
+                  id="players"
+                  type="text"
+                  name="players"
+                  placeholder="Number Of Players?"
+                  onChange={this.handleChange}
+                  value={this.state.players}
+                />
+                <input
+                  id="time"
+                  type="time"
+                  name="time"
+                  onChange={this.handleChange}
+                  value={this.state.time}
+                />
+                <input
+                  id="location"
+                  type="text"
+                  name="location"
+                  placeholder="Where will the game be?"
+                  onChange={this.handleChange}
+                  value={this.state.location}
+                />
               </div>
-              
+
+              <div className="btnContainer">
+                <input value="Create" id="createBtn" type="submit" />
+                <input id="createBtn" type="submit" value="Cancel" />
+              </div>
             </form>
           </section>
         </div>
