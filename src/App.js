@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import { BrowserRouter } from "react-router-dom";
-import CreateGame from "./components/create-game/CreateGame";
-import GameOptions from "./components/game-options/GameOptions";
-import LoginOptions from "./components/login-options/loginOptions";
 import firebase from "./firebase.js";
 import Routes from "./components/Routes";
 // import "./App.css";
