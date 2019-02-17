@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import firebase from "../../firebase.js";
 import './CreateUserFolder.css';
+import {NavLink} from "react-router-dom";
 
 class CreateUserFolder extends Component {
   constructor() {
@@ -22,13 +23,22 @@ class CreateUserFolder extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
-    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
-    }).catch((error) => {
-      console.log(error);
-    });
-
-    this.props.history.push('/game-options');
+    console.log(this.props.new);
+    console.log(this.state.email);
+    console.log(this.state.password);
+    if (this.props.new) {
+      firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
+      }).then((u)=>{console.log(u)})
+        .catch((error) => {
+          console.log(error);
+        })
+    } else {
+      firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
+      }).catch((error) => {
+        console.log(error);
+      });
+    }
+    // this.props.history.push('/game-options');
   }
 
   handleChange(e) {
@@ -82,7 +92,7 @@ class CreateUserFolder extends Component {
               </div>
 
               <div className="btnContainer">
-                <button id="createBtn" type="submit">Login</button>
+                <NavLink to="/game-options"><button id="createBtn" type="submit">Login</button></NavLink>
                 <button id="cancelBtn" type="button" onClick={this.goBack}>Cancel</button>
               </div>
 
