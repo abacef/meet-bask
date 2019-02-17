@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import firebase from "../../firebase.js";
 import './GetUser.css';
-import {NavLink} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 
 class GetUser extends Component {
   constructor() {
@@ -14,11 +14,6 @@ class GetUser extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.goBack = this.goBack.bind(this);
-  }
-
-  goBack() {
-    this.props.history.goBack();
   }
 
   handleSubmit(e) {
@@ -55,7 +50,9 @@ class GetUser extends Component {
         <header>
 
           <div>
-            <h1 id="header">Create <span id="headerSec">Account</span></h1>
+            <h1 id="header">
+            {this.props.new ? "Create" : "Log Into"}
+            <span id="headerSec"> Account</span></h1>
           </div>
 
         </header>
@@ -65,14 +62,17 @@ class GetUser extends Component {
             <form onSubmit={this.handleSubmit}>
               <div id="inputBoxes">
 
-                <input
-                  id="fullName"
-                  type="text"
-                  name="fullName"
-                  placeholder="Enter Full Name"
-                  onChange={this.handleChange}
-                  value={this.state.fullName}
-                />
+                {this.props.new ?
+                  <input
+                    id="fullName"
+                    type="text"
+                    name="fullName"
+                    placeholder="Enter Full Name"
+                    onChange={this.handleChange}
+                    value={this.state.fullName}
+                  /> : ""
+                }
+
                 <input
                   id="email"
                   type="email"
@@ -93,7 +93,7 @@ class GetUser extends Component {
 
               <div className="btnContainer">
                 <NavLink to="/game-options"><button id="createBtn" type="submit">Login</button></NavLink>
-                <button id="cancelBtn" type="button" onClick={this.goBack}>Cancel</button>
+                <NavLink to="/"><button id="cancelBtn" type="button">Cancel</button></NavLink>
               </div>
 
             </form>
