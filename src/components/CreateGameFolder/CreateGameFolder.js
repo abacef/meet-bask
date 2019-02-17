@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import firebase from "../firebase.js";
+import firebase from "../../firebase.js";
+import './CreateGameFolder.css';
 
 class CreateGameFolder extends Component {
   constructor() {
@@ -38,35 +39,25 @@ class CreateGameFolder extends Component {
     });
   }
 
-  // componentDidMount() {
-  //   const itemsRef = firebase.database().ref("items");
-  //   itemsRef.on("value", snapshot => {
-  //     let items = snapshot.val();
-  //     let newState = [];
-  //     for (let item in items) {
-  //       newState.push({
-  //         id: item,
-  //         title: items[item].title,
-  //         user: items[item].user
-  //       });
-  //     }
-  //     this.setState({
-  //       items: newState
-  //     });
-  //   });
-  // }
+
   render() {
     return (
-      <div className="app">
+
+      <div className="bgColor">
         <header>
-          <div className="wrapper">
-            <h1>Create Game</h1>
+        
+          <div>
+            <h1 id="header">Create <span id="headerSec">Game</span></h1>
           </div>
+
         </header>
-        <div className="container">
+
+        <div>
           <section className="add-item">
             <form onSubmit={this.handleSubmit}>
-              <select
+            <div id="inputBoxes">
+            <select
+                id="sport"
                 name="sport"
                 onChange={this.handleChange}
                 value={this.state.value}
@@ -77,6 +68,7 @@ class CreateGameFolder extends Component {
                 <option value="Lacrosse">Lacrosse</option>
               </select>
               <input
+                id="players"
                 type="text"
                 name="players"
                 placeholder="Number Of Players?"
@@ -84,21 +76,27 @@ class CreateGameFolder extends Component {
                 value={this.state.players}
               />
               <input
+                id="time"
                 type="time"
                 name="time"
                 onChange={this.handleChange}
                 value={this.state.time}
               />
               <input
+                id="location"
                 type="text"
                 name="location"
                 placeholder="Where will the game be?"
                 onChange={this.handleChange}
                 value={this.state.location}
               />
-
-              <button>Create</button>
-              <button>Cancel</button>
+            </div>
+              
+              <div className="btnContainer">
+                <button id="createBtn" type="button">Create</button>
+                <button id="cancelBtn" type="button">Cancel</button>
+              </div>
+              
             </form>
           </section>
         </div>

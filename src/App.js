@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import CreateGameFolder from "./components/CreateGameFolder";
+import CreateGameFolder from "./components/CreateGameFolder/CreateGameFolder";
+import GameOptions from "./components/gameOptions/gameOptions";
 import firebase from "./firebase.js";
 // import "./App.css";
 
@@ -54,34 +55,7 @@ class App extends Component {
   render() {
     return (
       <CreateGameFolder />
-      // <div className="app">
-      //   <header>
-      //     <div className="wrapper">
-      //       <h1>Fun Food Friends</h1>
-      //     </div>
-      //   </header>
-      //   <div className="container">
-      //     <section className="add-item">
-      //       <form onSubmit={this.handleSubmit}>
-      //         <input
-      //           type="text"
-      //           name="username"
-      //           placeholder="What's your name?"
-      //           onChange={this.handleChange}
-      //           value={this.state.username}
-      //         />
-      //         <input
-      //           type="text"
-      //           name="currentItem"
-      //           placeholder="What are you bringing?"
-      //           onChange={this.handleChange}
-      //           value={this.state.currentItem}
-      //         />
-      //         <button>Add Item</button>
-      //       </form>
-      //     </section>
-      //   </div>
-      // </div>
+      
     );
   }
 }
