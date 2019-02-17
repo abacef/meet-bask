@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { BrowserRouter } from "react-router-dom";
 import CreateGameFolder from "./components/CreateGameFolder/CreateGameFolder";
 import GameOptions from "./components/gameOptions/gameOptions";
 import LoginOptions from "./components/loginOptions/loginOptions";
 import firebase from "./firebase.js";
+import Routes from "./components/Routes";
 // import "./App.css";
 
 class App extends Component {
@@ -55,8 +57,11 @@ class App extends Component {
   // }
   render() {
     return (
-      <LoginOptions />
-      
+      <BrowserRouter>
+        <div>
+          <Routes />
+        </div>
+      </BrowserRouter>
     );
   }
 }
