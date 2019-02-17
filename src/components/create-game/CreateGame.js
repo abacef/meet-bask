@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import firebase from "../../firebase.js";
-import './CreateGame.css';
+import "./CreateGame.css";
 
 class CreateGame extends Component {
   constructor() {
     super();
     this.state = {
-      sport: "Basketball",
+      sport: "-------",
       players: "",
       time: "",
       location: ""
@@ -24,6 +24,7 @@ class CreateGame extends Component {
     e.preventDefault();
     const itemsRef = firebase.database().ref("items");
     const item = {
+      id: Math.floor(Math.random() * 10000000) + 1,
       sport: this.state.sport,
       players: this.state.players,
       time: this.state.time,
