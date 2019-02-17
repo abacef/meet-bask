@@ -22,18 +22,12 @@ class CreateUserFolder extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const itemsRef = firebase.database().ref("user");
-    const item = {
-      fullName: this.state.fullName,
-      password: this.state.password,
-      email: this.state.email,
-    };
-    itemsRef.push(item);
-    this.setState({
-      fullName: "",
-      password: "",
-      email: "",
+
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
+    }).catch((error) => {
+      console.log(error);
     });
+
     this.props.history.push('/game-options');
   }
 
@@ -88,7 +82,7 @@ class CreateUserFolder extends Component {
               </div>
 
               <div className="btnContainer">
-                <button id="createBtn" type="submit">Create</button>
+                <button id="createBtn" type="submit">Login</button>
                 <button id="cancelBtn" type="button" onClick={this.goBack}>Cancel</button>
               </div>
 

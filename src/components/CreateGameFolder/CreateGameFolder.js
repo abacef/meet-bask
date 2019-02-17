@@ -36,7 +36,7 @@ class CreateGameFolder extends Component {
       time: "",
       location: ""
     });
-    this.props.history.push('/');
+    this.props.history.push('/game-info');
   }
 
   handleChange(e) {

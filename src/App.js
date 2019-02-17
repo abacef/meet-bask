@@ -11,9 +11,11 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      user: null,
       currentItem: "",
       username: ""
     };
+    this.authListener = this.authListener.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -38,23 +40,23 @@ class App extends Component {
     });
   }
 
-  // componentDidMount() {
-  //   const itemsRef = firebase.database().ref("items");
-  //   itemsRef.on("value", snapshot => {
-  //     let items = snapshot.val();
-  //     let newState = [];
-  //     for (let item in items) {
-  //       newState.push({
-  //         id: item,
-  //         title: items[item].title,
-  //         user: items[item].user
-  //       });
-  //     }
-  //     this.setState({
-  //       items: newState
-  //     });
-  //   });
-  // }
+  componentDidMount() {
+    this.authListener();
+  }
+
+  authListener() {
+    firebase.auth().onAuthStateChanged((user) => {
+      console.log(user);
+      if (user) {
+        this.setState({ user });
+        //  localStorage.setItem('user', user.uid);
+      } else {
+        this.setState({ user: null });
+        //    localStorage.removeItem('user');
+      }
+    });
+  }
+
   render() {
     return (
       <BrowserRouter>
