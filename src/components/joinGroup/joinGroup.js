@@ -4,6 +4,13 @@ import firebase from "../../firebase.js";
 var myItems = [];
 
 class JoinGroup extends Component {
+  constructor() {
+    super();
+    this.state = {
+      items: []
+    };
+  }
+
   componentDidMount() {
     const itemsRef = firebase.database().ref("items");
     itemsRef.on("value", snapshot => {
@@ -13,15 +20,33 @@ class JoinGroup extends Component {
           sport: childData.sport,
           players: childData.players,
           time: childData.time,
-          location: childData.location
+          location: childData.location,
+          id: childData.id
         };
         myItems.push(myObj);
+      });
+      this.setState({
+        items: myItems
       });
     });
   }
 
   render() {
-    return <div className="wrapper">{myItems.map(item => <li>Hello</li>)}</div>;
+    this.theItems = this.state.items.map(item => (
+      <ul>
+        {item.id}
+        {item.sport}
+        {item.players}
+        {item.time}
+        {item.location}
+      </ul>
+    ));
+    return (
+      <div>
+        <h2>Games Available</h2>
+        {this.theItems}
+      </div>
+    );
   }
 }
 export default JoinGroup;

@@ -7,7 +7,7 @@ import firebase from "./firebase.js";
 
 class App extends Component {
   render() {
-    return <CreateGameFolder />;
+    return <JoinGroup />;
   }
 }
 export default App;
