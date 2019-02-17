@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+#bgColor {
+  background-color: #7fdbff;
+  height: 100vh;
+  width: 100vw;
+}
+
+.header {
+  text-align: center;
+  color: #0074d9;
+  font-size: 5.4rem;
+  clear: both;
+  /* position: relative; */
+  top: 35px;
+  text-shadow: 1px 1px 1px #001f3f;
+  position: relative;
+}
+
+.headerSec {
+  color: #fff;
+}
+
+.info {
+  margin-top: 6vh;
+  text-align: center;
+  font-size: 3rem;
+  color: #001f3f;
+  margin-bottom: 0;
+}
+
+.info:nth-child(odd) {
+  color: white;
+}
+
+.btnContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 12vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+#createBtn {
+  background-color: #001f3f;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 28px;
+  padding: 15px 30px;
+  text-decoration: none;
+  border: 0px;
+  margin-right: 6vw;
+  transition: 0.4s;
+}
+#createBtn:hover {
+  background-color: #0074d9;
+}
+#createBtn:active {
+  position: relative;
+  top: 1px;
+}
+
+#cancelBtn {
+  background-color: #0074d9;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 28px;
+  padding: 15px 30px;
+  text-decoration: none;
+  border: 0px;
+  transition: 0.4s;
+}
+#cancelBtn:hover {
+  background-color: #001f3f;
+}
+#cancelBtn:active {
+  position: relative;
+  top: 1px;
+}
+
+#wrap {
+  position: relative;
+  top: 5vh;
+}

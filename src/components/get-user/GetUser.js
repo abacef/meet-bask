@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import firebase from "../../firebase.js";
-import './GetUser.css';
-import {NavLink} from "react-router-dom";
+import "./GetUser.css";
+import { NavLink } from "react-router-dom";
 
 class GetUser extends Component {
   constructor(props) {
@@ -23,16 +23,24 @@ class GetUser extends Component {
     console.log(this.state.email);
     console.log(this.state.password);
     if (this.props.new) {
-      firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
-      }).then((u)=>{console.log(u)})
-        .catch((error) => {
-          console.log(error);
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.state.email, this.state.password)
+        .then(u => {})
+        .then(u => {
+          console.log(u);
         })
+        .catch(error => {
+          console.log(error);
+        });
     } else {
-      firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
-      }).catch((error) => {
-        console.log(error);
-      });
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.state.email, this.state.password)
+        .then(u => {})
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 
@@ -42,27 +50,23 @@ class GetUser extends Component {
     });
   }
 
-
   render() {
     return (
-
       <div className="bgColor">
         <header>
-
           <div>
             <h1 id="header">
-            {this.state.new ? "Create" : "Log Into"}
-            <span id="headerSec"> Account</span></h1>
+              {this.state.new ? "Create" : "Log Into"}
+              <span id="headerSec"> Account</span>
+            </h1>
           </div>
-
         </header>
 
         <div>
           <section className="add-item">
             <form onSubmit={this.handleSubmit}>
               <div id="inputBoxes">
-
-                {this.state.new ?
+                {this.state.new ? (
                   <input
                     id="fullName"
                     type="text"
@@ -70,8 +74,10 @@ class GetUser extends Component {
                     placeholder="Enter Full Name"
                     onChange={this.handleChange}
                     value={this.state.fullName}
-                  /> : ""
-                }
+                  />
+                ) : (
+                  ""
+                )}
 
                 <input
                   id="email"
@@ -92,10 +98,28 @@ class GetUser extends Component {
               </div>
 
               <div className="btnContainer">
-                <NavLink to="/game-options"><button id="createBtn" type="submit">Login</button></NavLink>
-                <button id="cancelBtn" type="button" onClick={this.props.history.goBack}>Cancel</button>
-              </div>
+                {this.state.new ? (
+                  <NavLink to="/">
+                    <button id="createBtn" type="submit">
+                      Create Account
+                    </button>
+                  </NavLink>
+                ) : (
+                  <NavLink to="/game-options">
+                    <button id="createBtn" type="submit">
+                      Login
+                    </button>
+                  </NavLink>
+                )}
 
+                <button
+                  id="cancelBtn"
+                  type="button"
+                  onClick={this.props.history.goBack}
+                >
+                  Cancel
+                </button>
+              </div>
             </form>
           </section>
         </div>

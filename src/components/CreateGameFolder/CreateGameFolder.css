@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.bgColor {
+  background-color: #7fdbff;
+  height: 100vh;
+  width: 100vw;
+}
+::placeholder {
+  color: #0074d9;
+  opacity: 0.8;
+}
+#inputBoxes {
+  position: relative;
+  top: 10vh;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+}
+select {
+  color: #0074d9;
+
+  display: block;
+  border: 0;
+  margin-top: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+input {
+  color: #0074d9;
+
+  display: block;
+  border: 0;
+  margin-top: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  border-radius: 8px;
+}
+
+#header {
+  text-align: center;
+  color: #0074d9;
+  font-size: 5.4rem;
+  clear: both;
+  /* position: relative; */
+  top: 35px;
+  text-shadow: 1px 1px 1px #001f3f;
+  position: relative;
+}
+#headerSec {
+  color: #fff;
+}
+
+.btnContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 18vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+#createBtn {
+  background-color: #001f3f;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 28px;
+  padding: 15px 30px;
+  text-decoration: none;
+  border: 0px;
+  margin-right: 6vw;
+  transition: 0.4s;
+}
+#createBtn:hover {
+  background-color: #0074d9;
+}
+#createBtn:active {
+  position: relative;
+  top: 1px;
+}
+
+#cancelBtn {
+  background-color: #0074d9;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 28px;
+  padding: 15px 30px;
+  text-decoration: none;
+  border: 0px;
+  transition: 0.4s;
+}
+#cancelBtn:hover {
+  background-color: #001f3f;
+}
+#cancelBtn:active {
+  position: relative;
+  top: 1px;
+}
+
+@media only screen and (max-width: 650px) {
+  #inputBoxes {
+    width: 80%;
+    top: 8vh;
+  }
+  .btnContainer {
+    position: relative;
+    bottom: 5vh;
+  }
+}
