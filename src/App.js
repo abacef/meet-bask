@@ -42,7 +42,7 @@ class App extends Component {
   }
 
   authListener() {
-    firebase.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged(user => {
       console.log(user);
       if (user) {
         this.setState({ user });
@@ -58,7 +58,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Routes />
+          <Routes path="/" />
         </div>
       </BrowserRouter>
     );
